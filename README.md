@@ -1,10 +1,7 @@
-# \# Asteria
+#Asteria
+> A 2D Pixel Art MMORPG built around adventure, progression, exploration, and player freedom.
 
-# 
-
-# > A 2D Pixel Art MMORPG built around adventure, progression, exploration, and player freedom.
-
-# 
+#
 
 # \*\*Asteria\*\* is a 2D top-down pixel art RPG evolving into an MMORPG experience. Players can create their own characters, choose and develop their classes, learn skills, complete quests, explore dungeons, gather resources, craft items, take on different jobs, and build a place they can call home.
 
