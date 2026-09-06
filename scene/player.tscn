@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dw6l2tgqxeyls"]
+
+[ext_resource type="PackedScene" uid="uid://bhm1rw4dfatn" path="res://scene/entity.tscn" id="1_hjaqi"]
+[ext_resource type="Script" uid="uid://qm1ba8cp1ixu" path="res://scripts/player.gd" id="2_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://c0snbtdb8ju6j" path="res://assets/icon.svg" id="2_fvtld"]
+[ext_resource type="Script" uid="uid://cl4332uxpnex" path="res://scripts/components/player_movement.gd" id="4_s4jxa"]
+[ext_resource type="Script" uid="uid://dl52xugnjenvj" path="res://scripts/states/statemachine.gd" id="5_g2vtq"]
+[ext_resource type="Script" uid="uid://6jcnx455qsr7" path="res://scripts/states/player_state/idle.gd" id="5_hp4bs"]
+[ext_resource type="Script" uid="uid://cunsu57yxgoko" path="res://scripts/states/player_state/walk.gd" id="6_g2vtq"]
+[ext_resource type="Script" uid="uid://bflefomvkqfc4" path="res://scripts/states/player_state/sprint.gd" id="7_2fvbb"]
+[ext_resource type="Script" uid="uid://7ksgweymcb6q" path="res://scripts/states/player_state/jump.gd" id="8_ml7e8"]
+[ext_resource type="Script" uid="uid://ckxvy7e8073x2" path="res://scripts/states/player_state/dash.gd" id="9_2fvbb"]
+[ext_resource type="Script" uid="uid://dbajsosd3ak28" path="res://scripts/states/player_state/state_controller.gd" id="11_ihjo1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lj6g"]
+
+[node name="Player" unique_id=1911064976 instance=ExtResource("1_hjaqi")]
+script = ExtResource("2_ct4mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0" unique_id=1683680895]
+shape = SubResource("CapsuleShape2D_1lj6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance" parent_id_path=PackedInt32Array(900590490) index="0" unique_id=492097133]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fvtld")
+
+[node name="DisplayName" parent="Appearance" parent_id_path=PackedInt32Array(900590490) index="1" unique_id=204040244]
+text = "Velbiru"
+
+[node name="Movement" type="Node" parent="Components" parent_id_path=PackedInt32Array(1670561916) index="0" unique_id=364104388 node_paths=PackedStringArray("appearance", "collision")]
+script = ExtResource("4_s4jxa")
+appearance = NodePath("../../Appearance")
+collision = NodePath("../../CollisionShape2D")
+
+[node name="StateController" type="Node" parent="." index="3" unique_id=211441662]
+script = ExtResource("11_ihjo1")
+metadata/_custom_type_script = "uid://bj1qoa7ng7ogv"
+
+[node name="StateMachine" parent="." index="4" unique_id=1507483055 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_g2vtq")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine" index="0" unique_id=1131445512]
+script = ExtResource("5_hp4bs")
+metadata/_custom_type_script = "uid://bj1qoa7ng7ogv"
+
+[node name="WalkState" type="Node" parent="StateMachine" index="1" unique_id=1219214904]
+script = ExtResource("6_g2vtq")
+metadata/_custom_type_script = "uid://bj1qoa7ng7ogv"
+
+[node name="JumpState" type="Node" parent="StateMachine" index="2" unique_id=507080818]
+script = ExtResource("8_ml7e8")
+metadata/_custom_type_script = "uid://bj1qoa7ng7ogv"
+
+[node name="Sprint" type="Node" parent="StateMachine" index="3" unique_id=1761732960]
+script = ExtResource("7_2fvbb")
+metadata/_custom_type_script = "uid://bj1qoa7ng7ogv"
+
+[node name="Dash" type="Node" parent="StateMachine" index="4" unique_id=1739821784]
+script = ExtResource("9_2fvbb")
+metadata/_custom_type_script = "uid://bj1qoa7ng7ogv"

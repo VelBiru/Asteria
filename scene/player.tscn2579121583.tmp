@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dw6l2tgqxeyls"]
+
+[ext_resource type="PackedScene" uid="uid://bhm1rw4dfatn" path="res://scene/entity.tscn" id="1_hjaqi"]
+[ext_resource type="Script" uid="uid://qm1ba8cp1ixu" path="res://scene/player.gd" id="2_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://c0snbtdb8ju6j" path="res://assets/icon.svg" id="2_fvtld"]
+[ext_resource type="Script" uid="uid://cl4332uxpnex" path="res://scripts/components/movement.gd" id="4_s4jxa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lj6g"]
+
+[node name="Player" unique_id=1911064976 instance=ExtResource("1_hjaqi")]
+script = ExtResource("2_ct4mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0" unique_id=1683680895]
+shape = SubResource("CapsuleShape2D_1lj6g")
+
+[node name="Name" parent="." index="1" unique_id=779646441]
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance" parent_id_path=PackedInt32Array(835437488) index="0" unique_id=492097133]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_fvtld")
+
+[node name="Movement" type="Node" parent="Components" parent_id_path=PackedInt32Array(1670561916) index="0" unique_id=364104388]
+script = ExtResource("4_s4jxa")

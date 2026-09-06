@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bhm1rw4dfatn"]
+
+[ext_resource type="Script" uid="uid://dsfi7krlaojyq" path="res://scripts/entity.gd" id="1_op3xe"]
+
+[node name="Entity" type="CharacterBody2D" unique_id=1911064976]
+script = ExtResource("1_op3xe")
+
+[node name="Appearance" type="Node2D" parent="." unique_id=900590490]
+
+[node name="DisplayName" type="Label" parent="Appearance" unique_id=204040244]
+offset_left = -99.0
+offset_top = -63.0
+offset_right = 101.0
+offset_bottom = -40.0
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Components" type="Node" parent="." unique_id=1670561916]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1507483055]
