@@ -91,7 +91,7 @@ Asteria is currently in active development. Core systems, gameplay mechanics, vi
 Asteria is also a personal project focused on developing practical skills in:
 
 * Game development
-* C# programming
+* GdScript
 * Godot Engine
 * Object-oriented programming
 * Game architecture
